@@ -14,6 +14,7 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Use variables
+      uses: actions/checkout@v2
       env:
         LANGBASE_API_KEY: ${{ vars.LANGBASE_API_KEY }}
         BOT_TOKEN: ${{ vars.BOT_TOKEN }}
