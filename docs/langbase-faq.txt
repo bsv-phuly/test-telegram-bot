@@ -1,0 +1,153 @@
+
+Langbase is the most powerful serverless AI platform for building AI agents with memory.
+Build, deploy, and scale AI agents with tools and memory (RAG). Simple AI primitives with a world-class developer experience without using any frameworks.
+
+Compared to complex AI frameworks, Langbase is serverless and the first composable AI platform.
+
+Build AI agents without any bloated frameworks. You write the logic, we handle the logistics.
+
+Start by building simple AI agents (pipes)
+Then train serverless semantic Memory agents (RAG) to get accurate and trusted results
+Langbase provides several options to get started:
+
+AI Studio: Build, collaborate, and deploy AI Agents with tools and Memory (RAG).
+Langbase SDK: Easiest wasy to build AI Agents with TypeScript. (recommended)
+HTTP API: Build AI agents with any language (Python, Go, PHP, etc.).
+or BaseAI.dev: Local-first, open-source web AI framework.
+Langbase — The most powerful serverless AI Agents platform
+Langbase — The most powerful serverless AI Agents platform
+Products	Description
+⌘ AI Pipes
+(Serverless Agents)
+Pipes are serverless AI agents with agentic tools. Work with any language or framework. Pipe is a serverless AI agent. It has agentic memory and tools. Deploy thousands of serverless agent pipes as easily as a website. Build and scale AI experiences powered by industry-leading 250+ LLM models and tools. Learn more about AI Pipes.
+⌘ AI Memory
+(Serverless RAG)
+Langbase memory agents are the next frontier in semantic retrieval-augmented generation (RAG) as a serverless and infinitely scalable API designed for developers. 30-50x less expensive than compeition, with industry-leading accuracy in advanced agentic routing and intelligent reranking.
+Memory is multi-tanent by design. Have tens of millions of memory RAG stores. Per user or per use-case memory RAGs. Memory is a powerful tool for developers to build AI features and products. Learn more about AI Memory agents.
+⌘ AI Studio
+(Dev Platform)
+Langbase studio is your playground to build, collaborate, and deploy AI. It allows you to experiment with your pipes in real-time, with real data, store messages, version your prompts, and truly helps you take your idea from building prototypes to deployed in production with LLMOps on usage, cost, and quality. Access Langbase Studio.
+A complete AI developers platform.
+- Collaborate: Invite all team members to collaborate on the pipe. Build AI together.
+- Developers & Stakeholders: All your R&D team, engineering, product, GTM (marketing and sales), literally all your stakeholders can collaborate on the same pipe. It's like a powerful version of GitHub x Google Docs for AI. A complete AI developers platform.
+Join today
+Langbase is free for anyone to get started. We process billions of AI messages tokens daily, used by thousands of developers. Tweet us — what will you ship with Langbase? It all started with a developer thinking … GPT is amazing, I want it everywhere, that's what ⌘ Langbase does for me.
+
+Get started
+Agent Architectures
+Explore different agent architectures and how to build them.
+
+Langbase SDK
+Learn how to use the Langbase SDK to build AI agents with TypeScript.
+
+AI Agents (Pipes)
+Build and deploy serverless AI agents we call pipes with tools.
+
+Memory Agents
+Build AI agents with Memory for Retrieval-augmented generation (RAG).
+
+Guides
+Docs AI Agent: AI in docs
+Build an AI agent with RAG that answers questions from your docs.
+
+
+AI Email Agent: Handle your emails
+Build a composable multi agent architecture using Langbase SDK.
+
+
+Build your own v0, Lovable, or Bolt
+Build a coding agent like v0, lovable, bolt with Langbase SDK.
+
+
+Understand how RAG works
+Understand how RAG works and how to use it in your app.
+
+
+Langbase Agent Examples
+Explore open-source Langbase agent examples on GitHub.
+
+
+Internet Research Agent Tool
+Build a tool for AI agents that can help you research on the internet.
+
+
+Features
+Memory
+Use agentic RAG memory with 30-50x in-expensive vector storage.
+
+Threads
+Store and retrieve messages in a Pipe for a conversation-like experience.
+
+Versions
+Create and manage versions of agents to track changes and compare results.
+
+Fork
+Fork to make a copy of any open agent in your account and ship faster.
+
+Variables
+Add variables to a prompts in Pipes to make them dynamic.
+
+Logs
+Detailed logs of each Pipe request with information like LLM request cost etc.
+
+Auto tool calling
+Auto tool calling enables agents to call external tools and APIs.
+
+Few-shot
+Few-shot messages enable LLMs to learn from simple system and AI prompt examples.
+
+Prompt
+A prompt sets the context for the LLM and the user, shaping the conversation and responses.
+
+Rerank
+Rerank to reorder a list of documents based on semantic relevance.
+
+Prompt Optimization
+Optimizer models optimize a prompt for enhanced results.
+
+Safety
+Define a safety prompt for any LLM.
+
+Stream
+Stream agent responses to improve the user's agent experience.
+
+Moderation
+Set custom moderation settings for OpenAI models in a Pipe.
+
+JSON mode
+JSON mode of Pipe instructs the LLM to give output in JSON.
+
+Experiments
+Run experiments to test the performance of different LLMs and prompts.
+
+Readme
+Add a README to a Pipe to provide additional information.
+
+API & SDK
+Managed API to deploy and scale serverless AI agents with Langbase.
+
+Keysets
+Add all LLM API keys once to seamless switch between models in a Pipe.
+
+Usage
+View insights of each Pipe request.
+
+Examples
+Multiple ready to use examples to quickly setup the Pipe.
+
+Model Presets
+Configure response parameters of LLMs in a Pipe using model presets.
+
+Organizations
+Foster collaboration among users within a shared workspace via organizations.
+
+Open Pipes
+Open Pipes on Langbase allows users to create and share pipes with the public.
+
+Composable AI
+Langbase, Inc. © Copyright 2025. All rights reserved.
+
+Follow us on X
+Follow us on LinkedIn
+Join our Discord server
+Follow us on GitHub
