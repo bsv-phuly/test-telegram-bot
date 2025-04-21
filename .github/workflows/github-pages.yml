@@ -3,7 +3,7 @@ name: Deploy bot app to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - develop
 permissions: read-all
 jobs:
   build:
@@ -24,7 +24,6 @@ jobs:
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@v4.5.0
       with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BASE_BRANCH: master
-        BRANCH: gh-pages
-        FOLDER: src
+        token: ${{ secrets.ACCESS_TOKEN }}
+        branch: gh-pages
+        folder: src
