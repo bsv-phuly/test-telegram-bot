@@ -1,0 +1,30 @@
+name: Deploy bot app to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Use variables
+      env:
+        LANGBASE_API_KEY: ${{ vars.LANGBASE_API_KEY }}
+        BOT_TOKEN: ${{ vars.BOT_TOKEN }}
+    - name: Build
+      run: |
+        npm install
+        npx tsx index.ts
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: master
+        BRANCH: gh-pages
+        FOLDER: src

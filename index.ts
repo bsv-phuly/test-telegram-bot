@@ -1,6 +1,6 @@
 import { Bot } from "grammy";
 import 'dotenv/config';
-import { runMemoryAgent, runAiSupportAgent } from './agents';
+import { runMemoryAgent, runAiSupportAgent } from './src/agents'
 import { composer, setupScheduler, MyContext } from "./features/mentionCoffe";
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
