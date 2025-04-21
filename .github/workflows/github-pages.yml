@@ -10,12 +10,17 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      LANGBASE_API_KEY: ${{ secrets.LANGBASE_API_KEY }}
+      BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-      env:
-        LANGBASE_API_KEY: ${{ vars.LANGBASE_API_KEY }}
-        BOT_TOKEN: ${{ vars.BOT_TOKEN }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
 
     - name: Build
       run: |
