@@ -21,6 +21,7 @@ export default defineConfig(({ mode }) => {
             'process.env.LANGBASE_API_KEY': JSON.stringify(env.LANGBASE_API_KEY),
             'process.env.BOT_TOKEN': JSON.stringify(env.BOT_TOKEN),
         },
+        base: '/test-telegram-bot/',
         // build: {
         //     lib: {
         //         entry: ['src/main.ts'],
