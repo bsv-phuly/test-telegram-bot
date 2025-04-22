@@ -1,5 +1,6 @@
 // vite.config.js
 import { exec } from "child_process";
+import path from "path";
 import { defineConfig, loadEnv } from "vite";
 
 function openFirebaseHostingUrl() {
@@ -22,6 +23,14 @@ export default defineConfig(({ mode }) => {
             'process.env.BOT_TOKEN': JSON.stringify(env.BOT_TOKEN),
         },
         base: '/test-telegram-bot/',
+        server: {
+            port: 3000,
+        },
+        resolve: {
+            alias: {
+                '@': path.resolve(__dirname, './src'),
+            },
+        },
         // build: {
         //     lib: {
         //         entry: ['src/main.ts'],

@@ -1,6 +1,8 @@
 import { Bot } from "grammy";
 import { runMemoryAgent, runAiSupportAgent } from './agents'
-import { composer, setupScheduler, MyContext } from "../features/mentionCoffe";
+import { composer, setupScheduler, MyContext } from "./features/mentionCoffe";
+// import { prisma } from '../prisma';
+import { prisma } from './server/index';
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 if (!BOT_TOKEN) {
@@ -75,7 +77,16 @@ const app = initializeApp(firebaseConfig);
 
 const main = async () => {
     app;
+    // const session = await prisma.session.findMany();
+    // console.log(session);
     await startBot();
 }
 
-main();
+main()
+    .catch(e => {
+        console.error(e);
+        process.exit(1);
+    })
+    .finally(async () => {
+        await prisma.$disconnect();
+    });;
