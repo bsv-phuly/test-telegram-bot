@@ -1,7 +1,7 @@
 import { CronJob } from 'cron';
 import { Composer, Context, session } from "grammy";
 // import { prisma } from '../../prisma';
-import { prisma } from '../server/index';
+import { prisma } from '../../server/index';
 
 // Define session interface
 interface SessionData {
