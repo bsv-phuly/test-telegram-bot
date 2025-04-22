@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +18,8 @@
     "firebase": "^11.6.0",
     "grammy": "^1.36.0",
     "langbase": "^1.1.55"
+  },
+  "devDependencies": {
+    "vite": "^6.3.2"
   }
 }

@@ -25,10 +25,10 @@ jobs:
     - name: Build
       run: |
         npm install
-        npx tsx index.ts
+        npm run build
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@v4.5.0
       with:
         token: ${{ secrets.ACCESS_TOKEN }}
         branch: gh-pages
-        folder: src
+        folder: dist
