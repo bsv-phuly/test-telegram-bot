@@ -21,12 +21,7 @@ export default defineConfig(({ mode }) => {
             'process.env.LANGBASE_API_KEY': JSON.stringify(env.LANGBASE_API_KEY),
             'process.env.BOT_TOKEN': JSON.stringify(env.BOT_TOKEN),
         },
-        // base: '/test-telegram-bot/',
-        resolve: {
-            alias: {
-                '@': path.resolve(__dirname, './src'),
-            },
-        },
+        base: '/test-telegram-bot/',
         // server: {
         //     port: 3000,
         // },
