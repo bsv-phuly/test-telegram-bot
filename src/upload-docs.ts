@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { Langbase } from 'langbase';
 import { readFile } from 'fs/promises';
 import path from 'path';

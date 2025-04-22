@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { Langbase, MemoryRetrieveResponse } from 'langbase';
 
 const langbase = new Langbase({

@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import {Langbase} from 'langbase';
 
 const langbase = new Langbase({

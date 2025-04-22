@@ -1,5 +1,4 @@
 import { Bot } from "grammy";
-import 'dotenv/config';
 import { runMemoryAgent, runAiSupportAgent } from './agents'
 import { composer, setupScheduler, MyContext } from "../features/mentionCoffe";
 
@@ -62,12 +61,13 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAP4eL6JBVcnPHOeeB7aVX6gL1XqA_Oah4",
-    authDomain: "telegram-bot-app-12291.firebaseapp.com",
-    projectId: "telegram-bot-app-12291",
-    storageBucket: "telegram-bot-app-12291.firebasestorage.app",
-    messagingSenderId: "541703448699",
-    appId: "1:541703448699:web:d1f5980cb5d9f4e5df5ade"
+    apiKey: "AIzaSyAcUmZKxPKECtpJNXmgqTuRl4-cpUKiuSU",
+    authDomain: "test-bot-app-799e1.firebaseapp.com",
+    projectId: "test-bot-app-799e1",
+    storageBucket: "test-bot-app-799e1.firebasestorage.app",
+    messagingSenderId: "107447802957",
+    appId: "1:107447802957:web:96478207fb609157005004",
+    measurementId: "G-8EWP5E4X9Z"
 };
 
 // Initialize Firebase
@@ -79,6 +79,3 @@ const main = async () => {
 }
 
 main();
-// Handle shutdown
-process.once("SIGINT", () => bot.stop());
-process.once("SIGTERM", () => bot.stop());

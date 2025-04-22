@@ -16,6 +16,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+    - name: Set up Firebase credentials
+      run: |
+        export GOOGLE_APPLICATION_CREDENTIALS=${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+    - name: Deploy to Firebase
+      run: firebase deploy --project test-bot-app-799e1 --only hosting
 
     - name: Build
       run: |
