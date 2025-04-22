@@ -22,6 +22,9 @@ export default defineConfig(({ mode }) => {
             'process.env.BOT_TOKEN': JSON.stringify(env.BOT_TOKEN),
         },
         base: '/test-telegram-bot/',
+        optimizeDeps: {
+            exclude: ['@prisma/client'],
+        },
         // server: {
         //     port: 3000,
         // },
