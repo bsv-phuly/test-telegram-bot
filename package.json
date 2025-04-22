@@ -14,9 +14,6 @@
     "db:seed": "prisma db seed",
     "db:reset": "prisma migrate reset"
   },
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
-  },
   "homepage": "https://phuly.github.io/test-telegram-bot",
   "keywords": [],
   "author": "",
