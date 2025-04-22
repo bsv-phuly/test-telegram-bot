@@ -23,14 +23,14 @@ export default defineConfig(({ mode }) => {
             'process.env.BOT_TOKEN': JSON.stringify(env.BOT_TOKEN),
         },
         base: '/test-telegram-bot/',
-        server: {
-            port: 3000,
-        },
         resolve: {
             alias: {
                 '@': path.resolve(__dirname, './src'),
             },
         },
+        // server: {
+        //     port: 3000,
+        // },
         // build: {
         //     lib: {
         //         entry: ['src/main.ts'],
