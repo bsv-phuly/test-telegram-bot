@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "tsx src/main.ts",
-    "build": "prisma generate && tsc",
+    "build": "prisma generate && tsc && npm run copy:static",
     "start": "node dist/main.js",
+    "copy:static": "cpx \"public/**/*\" dist/",
     "prisma:studio": "prisma studio",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev --name init",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@types/express": "^5.0.1",
     "@types/node": "^22.14.1",
+    "cpx": "^1.5.0",
     "express": "^5.1.0",
     "prisma": "^6.6.0",
     "ts-node": "^10.9.2",
