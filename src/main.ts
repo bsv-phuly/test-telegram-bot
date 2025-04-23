@@ -14,9 +14,6 @@ if (!BOT_TOKEN) {
 }
 const app = express();
 app.use('/test-telegram-bot', express.static(path.join(__dirname, '../dist')));
-app.get('/test-telegram-bot/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
 // Create a bot object
 const token = BOT_TOKEN;
 const bot = new Bot<MyContext>(token);
