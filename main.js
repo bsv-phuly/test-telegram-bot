@@ -2,10 +2,16 @@ import { Bot } from "grammy";
 import { runMemoryAgent, runAiSupportAgent } from './agents';
 import { composer, setupScheduler } from "./features/mentionCoffe";
 import { prisma } from './server/index';
+import express from 'express';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const BOT_TOKEN = process.env.BOT_TOKEN;
 if (!BOT_TOKEN) {
     throw new Error("BOT_TOKEN is required in .env file");
 }
+const app = express();
+app.use('/test-telegram-bot', express.static(path.join(__dirname, '../dist')));
 // Create a bot object
 const token = BOT_TOKEN;
 const bot = new Bot(token);
@@ -51,6 +57,7 @@ async function startBot() {
 }
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import path from "path";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
@@ -64,9 +71,9 @@ const firebaseConfig = {
     measurementId: "G-8EWP5E4X9Z"
 };
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const initApp = initializeApp(firebaseConfig);
 const main = async () => {
-    app;
+    initApp;
     const session = await prisma.session.findMany();
     console.log(session);
     await startBot();
