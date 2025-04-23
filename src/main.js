@@ -1,25 +1,22 @@
-import { Bot } from "grammy";
-import { runMemoryAgent, runAiSupportAgent } from './agents';
-import { composer, setupScheduler } from "./features/mentionCoffe";
-import { prisma } from './server/index';
-import express from 'express';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const grammy_1 = require("grammy");
+const agents_1 = require("./agents");
+const mentionCoffe_1 = require("./features/mentionCoffe");
+// import { prisma } from './server/index';
 const BOT_TOKEN = process.env.BOT_TOKEN;
+const CONVEX_URL = process.env.CONVEX_URL;
 if (!BOT_TOKEN) {
     throw new Error("BOT_TOKEN is required in .env file");
 }
-const app = express();
-app.use('/test-telegram-bot', express.static(path.join(__dirname, '../dist')));
 // Create a bot object
 const token = BOT_TOKEN;
-const bot = new Bot(token);
-bot.use(composer);
+const bot = new grammy_1.Bot(token);
+bot.use(mentionCoffe_1.composer);
 async function sendMessage(message) {
     const query = message;
-    const chunks = await runMemoryAgent(query);
-    const completion = await runAiSupportAgent({
+    const chunks = await (0, agents_1.runMemoryAgent)(query);
+    const completion = await (0, agents_1.runAiSupportAgent)({
         chunks,
         query,
     });
@@ -49,15 +46,14 @@ async function startBot() {
             });
         });
         // Setup the scheduler
-        setupScheduler(bot);
+        (0, mentionCoffe_1.setupScheduler)(bot);
     }
     catch (error) {
         console.error("Failed to start the bot:", error);
     }
 }
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import path from "path";
+const app_1 = require("firebase/app");
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
@@ -71,19 +67,9 @@ const firebaseConfig = {
     measurementId: "G-8EWP5E4X9Z"
 };
 // Initialize Firebase
-const initApp = initializeApp(firebaseConfig);
+const initApp = (0, app_1.initializeApp)(firebaseConfig);
 const main = async () => {
     initApp;
-    const session = await prisma.session.findMany();
-    console.log(session);
     await startBot();
 };
-main()
-    .catch(e => {
-    console.error(e);
-    process.exit(1);
-})
-    .finally(async () => {
-    await prisma.$disconnect();
-});
-;
+main();

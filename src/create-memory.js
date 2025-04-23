@@ -1,5 +1,7 @@
-import { Langbase } from 'langbase';
-const langbase = new Langbase({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const langbase_1 = require("langbase");
+const langbase = new langbase_1.Langbase({
     apiKey: process.env.LANGBASE_API_KEY,
 });
 async function main() {

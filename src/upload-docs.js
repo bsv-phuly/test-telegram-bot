@@ -1,7 +1,12 @@
-import { Langbase } from 'langbase';
-import { readFile } from 'fs/promises';
-import path from 'path';
-const langbase = new Langbase({
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const langbase_1 = require("langbase");
+const promises_1 = require("fs/promises");
+const path_1 = __importDefault(require("path"));
+const langbase = new langbase_1.Langbase({
     apiKey: process.env.LANGBASE_API_KEY,
 });
 async function main() {
@@ -27,7 +32,7 @@ async function main() {
     //     meta: { category: 'Support', topic: 'Langbase FAQs' },
     // });
     // console.log(faqResult.ok ? '✓ FAQ doc uploaded' : '✗ FAQ doc failed');
-    const lambdaDg = await readFile(path.join(cwd, 'docs', 'lambda-dg.txt'));
+    const lambdaDg = await (0, promises_1.readFile)(path_1.default.join(cwd, 'docs', 'lambda-dg.txt'));
     const lambdaResult = await langbase.memories.documents.upload({
         memoryName,
         contentType: 'text/plain',

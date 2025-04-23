@@ -1,8 +1,12 @@
-import { Langbase } from 'langbase';
-const langbase = new Langbase({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.runAiSupportAgent = runAiSupportAgent;
+exports.runMemoryAgent = runMemoryAgent;
+const langbase_1 = require("langbase");
+const langbase = new langbase_1.Langbase({
     apiKey: process.env.LANGBASE_API_KEY,
 });
-export async function runAiSupportAgent({ chunks, query, }) {
+async function runAiSupportAgent({ chunks, query, }) {
     const systemPrompt = await getSystemPrompt(chunks);
     const { completion } = await langbase.pipes.run({
         stream: false,
@@ -40,7 +44,7 @@ At the end of the answer, always list each source with its corresponding number 
     ${chunksText}`;
     return systemPrompt;
 }
-export async function runMemoryAgent(query) {
+async function runMemoryAgent(query) {
     const chunks = await langbase.memories.retrieve({
         query,
         topK: 4,
