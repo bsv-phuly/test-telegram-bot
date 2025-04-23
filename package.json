@@ -8,7 +8,7 @@
     "dev": "tsx src/main.ts",
     "build": "prisma generate && tsc && npm run copy:static",
     "start": "node dist/main.js",
-    "copy:static": "cpx \"public/**/*\" dist/",
+    "copy:static": "sed 's|src=\"main.ts\"|src=\"main.js\"|' src/index.html > dist/index.html",
     "prisma:studio": "prisma studio",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev --name init",
