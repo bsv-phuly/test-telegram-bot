@@ -1,11 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateSessionActive = exports.upsertSession = exports.getActiveSessions = exports.getSession = void 0;
-const server_1 = require("./_generated/server");
-const values_1 = require("convex/values");
+import { query, mutation } from "./_generated/server";
+import { v } from "convex/values";
 // Query to get a session by chatId
-exports.getSession = (0, server_1.query)({
-    args: { chatId: values_1.v.string() },
+export const getSession = query({
+    args: { chatId: v.string() },
     handler: async (ctx, args) => {
         return await ctx.db
             .query("sessions")
@@ -14,7 +11,7 @@ exports.getSession = (0, server_1.query)({
     },
 });
 // Query to get all active sessions
-exports.getActiveSessions = (0, server_1.query)({
+export const getActiveSessions = query({
     handler: async (ctx) => {
         return await ctx.db
             .query("sessions")
@@ -23,12 +20,12 @@ exports.getActiveSessions = (0, server_1.query)({
     },
 });
 // Mutation to create or update a session
-exports.upsertSession = (0, server_1.mutation)({
+export const upsertSession = mutation({
     args: {
-        chatId: values_1.v.string(),
-        linkToPin: values_1.v.string(),
-        messageText: values_1.v.string(),
-        isActive: values_1.v.boolean(),
+        chatId: v.string(),
+        linkToPin: v.string(),
+        messageText: v.string(),
+        isActive: v.boolean(),
     },
     handler: async (ctx, args) => {
         const existingSession = await ctx.db
@@ -53,10 +50,10 @@ exports.upsertSession = (0, server_1.mutation)({
     },
 });
 // Mutation to update session isActive state
-exports.updateSessionActive = (0, server_1.mutation)({
+export const updateSessionActive = mutation({
     args: {
-        chatId: values_1.v.string(),
-        isActive: values_1.v.boolean(),
+        chatId: v.string(),
+        isActive: v.boolean(),
     },
     handler: async (ctx, args) => {
         const existingSession = await ctx.db

@@ -1,12 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const server_1 = require("convex/server");
-const values_1 = require("convex/values");
-exports.default = (0, server_1.defineSchema)({
-    sessions: (0, server_1.defineTable)({
-        chatId: values_1.v.string(),
-        linkToPin: values_1.v.string(),
-        messageText: values_1.v.string(),
-        isActive: values_1.v.boolean(),
+import { defineSchema, defineTable } from "convex/server";
+import { v } from "convex/values";
+export default defineSchema({
+    sessions: defineTable({
+        chatId: v.string(),
+        linkToPin: v.string(),
+        messageText: v.string(),
+        isActive: v.boolean(),
     }).index("by_chatId", ["chatId"]),
 });

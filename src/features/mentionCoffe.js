@@ -1,19 +1,14 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.composer = void 0;
-exports.setupScheduler = setupScheduler;
-const cron_1 = require("cron");
-const grammy_1 = require("grammy");
-const browser_1 = require("convex/browser");
-const api_1 = require("../../convex/_generated/api");
+import { CronJob } from 'cron';
+import { Composer } from "grammy";
+import { ConvexHttpClient } from "convex/browser";
+import { api } from "../../convex/_generated/api";
 // import { getActiveSessions, upsertSession } from '../../convex/session';
 // Define your client
-const convex = new browser_1.ConvexHttpClient(process.env.CONVEX_URL || "");
+const convex = new ConvexHttpClient(process.env.CONVEX_URL || "");
 // Store active sessions (in a real app, use a database)
 const activeSessions = {};
 // Create composer
-const composer = new grammy_1.Composer();
-exports.composer = composer;
+const composer = new Composer();
 composer.command("start", async (ctx) => {
     await ctx.reply("Welcome to Daily Pin Bot!\n\n" +
         "Commands:\n" +
@@ -41,7 +36,7 @@ composer.command("setup", async (ctx) => {
     const chatId = ctx.chat.id.toString();
     const link = args[1];
     const message = args.slice(2).join(" ") || "Daily reminder";
-    await convex.mutation(api_1.api.session.upsertSession, {
+    await convex.mutation(api.session.upsertSession, {
         chatId,
         linkToPin: link,
         messageText: message,
@@ -52,12 +47,12 @@ composer.command("setup", async (ctx) => {
 // Activate daily pins
 composer.command("activate", async (ctx) => {
     const chatId = ctx.chat.id.toString();
-    const session = await convex.query(api_1.api.session.getSession, { chatId });
+    const session = await convex.query(api.session.getSession, { chatId });
     if (!session || !session.linkToPin) {
         await ctx.reply("Please set up the bot first using /setup [link] [optional message]");
         return;
     }
-    await convex.mutation(api_1.api.session.updateSessionActive, {
+    await convex.mutation(api.session.updateSessionActive, {
         chatId,
         isActive: true,
     });
@@ -66,7 +61,7 @@ composer.command("activate", async (ctx) => {
 // Deactivate daily pins
 composer.command("deactivate", async (ctx) => {
     const chatId = ctx.chat.id.toString();
-    await convex.mutation(api_1.api.session.updateSessionActive, {
+    await convex.mutation(api.session.updateSessionActive, {
         chatId,
         isActive: false,
     });
@@ -75,7 +70,7 @@ composer.command("deactivate", async (ctx) => {
 // Check status
 composer.command("status", async (ctx) => {
     const chatId = ctx.chat.id.toString();
-    const session = await convex.query(api_1.api.session.getSession, { chatId });
+    const session = await convex.query(api.session.getSession, { chatId });
     if (!session) {
         await ctx.reply("No setup found. Please use /setup to configure the bot.");
         return;
@@ -100,9 +95,9 @@ async function sendAndPinDailyMessage(bot, chatId, linkToPin, messageText) {
 }
 // Setup scheduler function to be called from main
 function setupScheduler(bot) {
-    const job = new cron_1.CronJob('0 30 8 * * 1-5', async () => {
+    const job = new CronJob('0 30 8 * * 1-5', async () => {
         console.log('Running daily pin job at 8:30 AM');
-        const activeSessions = await convex.query(api_1.api.session.getActiveSessions);
+        const activeSessions = await convex.query(api.session.getActiveSessions);
         for (const session of activeSessions) {
             await sendAndPinDailyMessage(bot, session.chatId, session.linkToPin, session.messageText);
         }
@@ -110,3 +105,4 @@ function setupScheduler(bot) {
     job.start();
     return job;
 }
+export { composer, setupScheduler };
