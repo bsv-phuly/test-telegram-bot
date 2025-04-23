@@ -14,6 +14,7 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as session from "../session.js";
+import type * as session from "../session.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -24,6 +25,7 @@ import type * as session from "../session.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  session: typeof session;
   session: typeof session;
 }>;
 export declare const api: FilterApi<
