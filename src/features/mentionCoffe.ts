@@ -1,7 +1,7 @@
 import { CronJob } from 'cron';
 import { Composer, Context, session } from "grammy";
 // import { prisma } from '../../prisma';
-import { prisma } from '../../server/index';
+import { prisma } from '../server/index';
 
 // Define session interface
 interface SessionData {
@@ -12,7 +12,7 @@ interface SessionData {
 }
 
 // Create context type with session
-type MyContext = Context & {
+export type MyContext = Context & {
     session: SessionData;
 };
 
@@ -294,4 +294,4 @@ function setupScheduler(bot: any) {
 }
 
 
-export { composer, setupScheduler, MyContext };
+export { composer, setupScheduler };

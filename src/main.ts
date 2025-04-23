@@ -1,8 +1,7 @@
 import { Bot } from "grammy";
 import { runMemoryAgent, runAiSupportAgent } from './agents'
 import { composer, setupScheduler, MyContext } from "./features/mentionCoffe";
-// import { prisma } from '../prisma';
-import { prisma } from '../server/index';
+import { prisma } from './server/index';
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 if (!BOT_TOKEN) {

@@ -2,19 +2,20 @@
   "name": "agentic-rag",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/main.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "prisma generate && vite",
-    "build": "prisma generate && vite build",
-    "preview": "vite preview",
+    "dev": "tsx src/main.ts",
+    "build": "prisma generate && tsc",
+    "start": "node dist/main.js",
     "prisma:studio": "prisma studio",
     "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
+    "prisma:migrate": "prisma migrate dev --name init",
     "db:seed": "prisma db seed",
-    "db:reset": "prisma migrate reset"
+    "db:reset": "prisma migrate reset",
+    "prepare": "prisma generate"
   },
-  "homepage": "https://phuly.github.io/test-telegram-bot",
+  "homepage": "https://test-telegram-bot.github.io",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -24,13 +25,14 @@
     "cron": "^4.3.0",
     "dotenv": "^16.5.0",
     "firebase": "^11.6.0",
-    "grammy": "^1.36.0",
-    "langbase": "^1.1.55",
-    "prisma": "^6.6.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "grammy": "^1.36.1",
+    "langbase": "^1.1.55"
   },
   "devDependencies": {
-    "vite": "^6.3.2"
+    "@types/node": "^22.14.1",
+    "prisma": "^6.6.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
   }
 }
