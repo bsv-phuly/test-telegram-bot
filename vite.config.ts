@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => {
             'process.env.CONVEX_URL': JSON.stringify(env.CONVEX_URL),
         },
         entry: ["/src/main.tsx"],
+        base: '/',
         // base: '/test-telegram-bot/',
     };
 });
