@@ -5,10 +5,9 @@
   "main": "dist/main.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx src/main.ts",
-    "build": "tsc && npm run copy:static",
+    "dev": "vite",
+    "build": "tsc && vite build",
     "start": "node dist/main.js",
-    "copy:static": "sed 's|src=\"./src/main.ts\"|src=\"./src/main.js\"|' index.html > dist/index.html",
     "dev:node": "nodemon src/main.ts",
     "dev:convex": "convex dev",
     "build:node": "tsc",
@@ -34,6 +33,7 @@
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vite": "^6.3.2"
   }
 }
