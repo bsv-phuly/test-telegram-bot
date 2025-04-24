@@ -1,4 +1,4 @@
-import { query, mutation } from "./_generated/server";
+import { query, mutation, action } from "./_generated/server";
 import { v } from "convex/values";
 
 // Query to get a session by chatId
@@ -73,4 +73,19 @@ export const updateSessionActive = mutation({
             isActive: args.isActive,
         });
     },
+});
+
+export const runScheduledTasks = action(async ({ storage }) => {
+    const res = await fetch("https://test-telegram-bot-git-master-bsv-phulys-projects.vercel.app/api/init", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({}) // if your init route needs a body (optional)
+    });
+
+    const data = await res.json(); // or res.text() if your handler returns plain text
+    console.log("Start bot status:", data);
+
+    return { success: true };
 });
