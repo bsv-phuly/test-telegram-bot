@@ -30,7 +30,7 @@ async function startBot() {
     console.log('init ...')
     try {
         console.log('starting ...')
-        await bot.start();
+        // await bot.start();
         console.log("Bot started");
         // Register listeners to handle messages
         bot.on("message:text", async (ctx) => {
